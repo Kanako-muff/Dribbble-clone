@@ -42,12 +42,16 @@ const LoadMore = ({
         <Button
           title="First Page"
           handleClick={() => handleNavigation("prev")}
+          bgColor="bg-[#53FFFD]"
+          textColor="text-black"
         />
       )}
       {hasNextPage && (
         <Button
           title="Next Shots"
           handleClick={() => handleNavigation("next")}
+          bgColor="bg-[#53FFFD]"
+          textColor="text-black"
         />
       )}
     </div>
