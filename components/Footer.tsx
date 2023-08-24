@@ -26,7 +26,7 @@ const Footer = () => {
     <footer className="flexStart footer page-main-color-darker">
       <div className="flex flex-col gap-12 w-full">
         <div className="flex items-start flex-col">
-          <Image src="/logo-red.svg" width={120} height={50} alt="Flexibble" />
+          <Image src="/logo-red.svg" width={120} height={50} alt="Jackie" />
 
           <p className="text-start text-sm font-normal mt-5 max-w-xs">
             Jackie is the world’s leading community for creatives to share,
