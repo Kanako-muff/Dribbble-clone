@@ -110,23 +110,27 @@ const ProjectForm = ({ type, session, project }: Props) => {
       <FormField
         title="Title"
         state={form.title}
-        placeholder="Flexibble"
+        placeholder="Jackie"
         setState={(value) => handleStateChange("title", value)}
+        className="font-black-field"
       />
       <FormField
+        className="font-black-field"
         title="Description"
         state={form.description}
         placeholder="Showcase and discover remarkable developer projects"
         setState={(value) => handleStateChange("description", value)}
       />
       <FormField
+        className="font-black-field"
         type="url"
         title="Website URL"
         state={form.liveSiteUrl}
-        placeholder="https://jsmastery.pro"
+        placeholder="https://jaclie.com"
         setState={(value) => handleStateChange("liveSiteUrl", value)}
       />
       <FormField
+        className="font-black-field"
         type="url"
         title="GitHub URL"
         state={form.githubUrl}

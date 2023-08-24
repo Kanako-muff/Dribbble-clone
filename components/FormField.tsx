@@ -5,6 +5,7 @@ type Props = {
   placeholder: string;
   isTextArea?: boolean;
   setState: (value: string) => void;
+  className?: string; // こちらを追加
 };
 
 const FormField = ({
@@ -14,6 +15,7 @@ const FormField = ({
   placeholder,
   isTextArea,
   setState,
+  className,
 }: Props) => {
   return (
     <div className="flexStart flex-col w-full gap-4">
@@ -24,7 +26,7 @@ const FormField = ({
           placeholder={placeholder}
           value={state}
           required
-          className="form_field-input"
+          className={`form_field-input ${className}`} // こちらを修正
           onChange={(e) => setState(e.target.value)}
         />
       ) : (
@@ -33,7 +35,7 @@ const FormField = ({
           placeholder={placeholder}
           value={state}
           required
-          className="form_field-input"
+          className={`form_field-input ${className}`} // こちらも修正
           onChange={(e) => setState(e.target.value)}
         />
       )}
