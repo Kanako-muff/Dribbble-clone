@@ -4,6 +4,7 @@ import {
   createProjectMutation,
   createUserMutation,
   deleteProjectMutation,
+  getAllProjectsQuery,
   getProjectByIdQuery,
   getProjectsOfUserQuery,
   getUserQuery,
@@ -109,7 +110,11 @@ export const fetchAllProjects = (
 ) => {
   client.setHeader("x-api-key", apiKey);
 
-  return makeGraphQLRequest(projectsQuery, { category, endcursor });
+    const variables = category ? {
+    category, endcursor
+    } : {endcursor}
+      const first = 4
+      return category? makeGraphQLRequest(projectsQuery, variables): makeGraphQLRequest(getAllProjectsQuery, variables);
 };
 
 export const getProjectDetails = (id: string) => {
