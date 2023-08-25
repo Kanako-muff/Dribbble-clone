@@ -5,9 +5,9 @@ import ProjectCard from "@/components/ProjectCard";
 import { fetchAllProjects } from "@/lib/actions";
 
 type SearchParams = {
-  category?: string;
-  endcursor?: string;
-}
+  category?: string | null;
+  endcursor?: string | null;
+};
 
 type Props = {
   searchParams: SearchParams;
@@ -47,8 +47,6 @@ const Home = async ({ searchParams: { category = "", endcursor } }: Props) => {
     );
   }
 
-  const pagination = data?.projectSearch?.pageInfo;
-
   return (
     <section className="page-main-color flexStart flex-col paddings ">
       <Categories />
@@ -68,10 +66,10 @@ const Home = async ({ searchParams: { category = "", endcursor } }: Props) => {
       </section>
 
       <LoadMore
-        startCursor={pagination.startCursor}
-        endCursor={pagination.endCursor}
-        hasPreviousPage={pagination.hasPreviousPage}
-        hasNextPage={pagination.hasNextPage}
+        startCursor={data?.projectSearch?.pageInfo?.startCursor}
+        endCursor={data?.projectSearch?.pageInfo?.endCursor}
+        hasPreviousPage={data?.projectSearch?.pageInfo?.hasPreviousPage}
+        hasNextPage={data?.projectSearch?.pageInfo.hasNextPage}
       />
     </section>
   );
