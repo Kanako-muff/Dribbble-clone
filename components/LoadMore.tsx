@@ -19,15 +19,15 @@ const LoadMore = ({
 }: Props) => {
   const router = useRouter();
 
-  const handleNavigation = (type: string) => {
+  const handleNavigation = (direction: string) => {
     const currentParams = new URLSearchParams(window.location.search);
 
-    if (type === "prev" && hasPreviousPage) {
-      currentParams.delete("endcursor");
-      currentParams.set("startcursor", startCursor);
-    } else if (type === "next" && hasNextPage) {
+    if (direction === "next" && hasNextPage) {
       currentParams.delete("startcursor");
       currentParams.set("endcursor", endCursor);
+    } else if (direction === "first" && hasPreviousPage) {
+      currentParams.delete("endcursor");
+      currentParams.set("startcursor", startCursor);
     }
 
     const newSearchParams = currentParams.toString();
@@ -41,14 +41,14 @@ const LoadMore = ({
       {hasPreviousPage && (
         <Button
           title="First Page"
-          handleClick={() => handleNavigation("prev")}
+          handleClick={() => handleNavigation("first")}
           bgColor="bg-[#53FFFD]"
           textColor="text-black"
         />
       )}
       {hasNextPage && (
         <Button
-          title="Next Shots"
+          title="Next Page"
           handleClick={() => handleNavigation("next")}
           bgColor="bg-[#53FFFD]"
           textColor="text-black"
