@@ -19,15 +19,33 @@ const LoadMore = ({
 }: Props) => {
   const router = useRouter();
 
+  // const handleNavigation = (type: string) => {
+  //   const currentParams = new URLSearchParams(window.location.search);
+
+  //   if (type === "prev" && hasPreviousPage) {
+  //     currentParams.delete("endcursor");
+  //     currentParams.set("startcursor", startCursor);
+  //   } else if (type === "next" && hasNextPage) {
+  //     currentParams.delete("startcursor");
+  //     currentParams.set("endcursor", endCursor);
+  //   }
   const handleNavigation = (type: string) => {
     const currentParams = new URLSearchParams(window.location.search);
 
     if (type === "prev" && hasPreviousPage) {
+      if (startCursor) {
+        currentParams.set("startcursor", startCursor);
+      } else {
+        currentParams.delete("startcursor");
+      }
       currentParams.delete("endcursor");
-      currentParams.set("startcursor", startCursor);
     } else if (type === "next" && hasNextPage) {
+      if (endCursor) {
+        currentParams.set("endcursor", endCursor);
+      } else {
+        currentParams.delete("endcursor");
+      }
       currentParams.delete("startcursor");
-      currentParams.set("endcursor", endCursor);
     }
 
     const newSearchParams = currentParams.toString();
