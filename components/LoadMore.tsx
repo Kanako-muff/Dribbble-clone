@@ -28,6 +28,7 @@ const LoadMore = ({
     } else if (type === "next" && hasNextPage) {
       currentParams.delete("startcursor");
       currentParams.set("endcursor", endCursor);
+
     }
 
     const newSearchParams = currentParams.toString();
