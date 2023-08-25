@@ -5,9 +5,9 @@ import ProjectCard from "@/components/ProjectCard";
 import { fetchAllProjects } from "@/lib/actions";
 
 type SearchParams = {
-  category?: string | undefined;
-  endcursor?: string | undefined;
-};
+  category?: String;
+  endcursor?: String;
+}
 
 type Props = {
   searchParams: SearchParams;
