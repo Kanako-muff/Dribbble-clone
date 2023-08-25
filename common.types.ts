@@ -8,7 +8,6 @@ export type FormState = {
     githubUrl: string;
     category: string;
 };
-
 export interface ProjectInterface {
     title: string;
     description: string;

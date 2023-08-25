@@ -7,6 +7,8 @@ export const metadata = {
   description: "Showcase and discover remarkable developer projects",
 };
 
+export const revalidate = 0;
+
 export default function RootLayout({
   children,
 }: {

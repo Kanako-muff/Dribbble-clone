@@ -4,6 +4,7 @@ import {
   createProjectMutation,
   createUserMutation,
   deleteProjectMutation,
+  getAllProjectsQuery,
   getProjectByIdQuery,
   getProjectsOfUserQuery,
   getUserQuery,
@@ -103,14 +104,24 @@ export const fetchAllProject = async (
   client.setHeader("x-api-key", apiKey);
 };
 
-export const fetchAllProjects = (
-  category?: string | null,
-  endcursor?: string | null
-) => {
-  client.setHeader("x-api-key", apiKey);
+// export const fetchAllProjects = (
+//   category?: string | null,
+//   endcursor?: string | null
+// ) => {
+//   client.setHeader("x-api-key", apiKey);
 
-  return makeGraphQLRequest(projectsQuery, { category, endcursor });
-};
+//     const variables = category ? {
+//     category, endcursor
+//     } : {endcursor}
+//       const first = 4
+//       return category? makeGraphQLRequest(projectsQuery, variables): makeGraphQLRequest(getAllProjectsQuery, variables);
+// };
+
+export const fetchAllProjects = async (category?: string, endCursor?: string) => {
+  client.setHeader('x-api-key', apiKey);
+
+  return makeGraphQLRequest(projectsQuery, { category, endCursor })
+}
 
 export const getProjectDetails = (id: string) => {
   client.setHeader("x-api-key", apiKey);

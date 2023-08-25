@@ -19,6 +19,7 @@ const LoadMore = ({
 }: Props) => {
   const router = useRouter();
 
+
   // const handleNavigation = (type: string) => {
   //   const currentParams = new URLSearchParams(window.location.search);
 
@@ -59,14 +60,14 @@ const LoadMore = ({
       {hasPreviousPage && (
         <Button
           title="First Page"
-          handleClick={() => handleNavigation("prev")}
+          handleClick={() => handleNavigation("first")}
           bgColor="bg-[#53FFFD]"
           textColor="text-black"
         />
       )}
       {hasNextPage && (
         <Button
-          title="Next Shots"
+          title="Next Page"
           handleClick={() => handleNavigation("next")}
           bgColor="bg-[#53FFFD]"
           textColor="text-black"
